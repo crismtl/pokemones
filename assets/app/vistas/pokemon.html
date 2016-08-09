@@ -1,0 +1,123 @@
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <form ng-submit="ingresarPokemon()">
+      <legend>REGISTRAR UN NUEVO POKEMÓN</legend>
+      <div class="form-group">
+        <label>Nombre : </label>
+        <input class="form-control" type="text" ng-model="nuevoPokemon.nombre" placeholder="Nombre" required>
+      </div>
+      <div class="form-group">
+        <label>Descripción : </label>
+        <input class="form-control" type="text" ng-model="nuevoPokemon.descripcion" placeholder="Descripción" required>
+      </div>
+      <div class="form-group">
+        <label>Imagen : </label>
+        <input class="form-control" type="text" ng-model="nuevoPokemon.imagen" placeholder="Link de imagen" required>
+      </div>
+      <div class="form-group">
+        <label>Número de Pokemon : </label>
+        <input class="form-control" type="number" ng-model="nuevoPokemon.numeroDePokemon" placeholder="Número de Pokemon" required>
+      </div>
+      <div class="form-group">
+        <label>Habilidad : </label>
+        <input class="form-control" type="text" ng-model="nuevoPokemon.habilidad" placeholder="Habilidad" required>
+      </div>
+      <div class="form-group">
+        <label>Habilidad Oculta : </label>
+        <input class="form-control" type="text" ng-model="nuevoPokemon.habilidadOculta" placeholder="Habilidad Oculta" required>
+      </div>
+      <div class="form-group">
+        <label>Color : </label>
+        <input class="form-control" type="text" ng-model="nuevoPokemon.color" placeholder="Color" required>
+      </div>
+      <div class="form-group">
+        <label>Velocidad : </label>
+        <input class="form-control" type="number" ng-model="nuevoPokemon.velocidad" placeholder="Velocidad" required>
+      </div>
+      <div class="form-group">
+        <label>Fortaleza : </label>
+        <input class="form-control" type="number" ng-model="nuevoPokemon.fortaleza" placeholder="Fortaleza" required>
+      </div>
+      <div class="form-group">
+        <label>Precisión : </label>
+        <input class="form-control" type="number" ng-model="nuevoPokemon.precision" placeholder="Precisión" required>
+      </div>
+      <div class="form-group">
+        <label>Resistencia : </label>
+        <input class="form-control" type="number" ng-model="nuevoPokemon.resistencia" placeholder="Resistencia" required>
+      </div>
+      <div class="form-group">
+        <label>Salto : </label>
+        <input class="form-control" type="number" ng-model="nuevoPokemon.salto" placeholder="Salto" required>
+      </div>
+      <button class="btn btn-block btn-info" ng-disabled="botonCrearDeshabilitado" type="submit">Ingresar Pokemón</button>
+    </form>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+
+<div class="row">
+  <div ng-repeat="pokemon in pokemones">
+    <div class="col-sm-4">
+      <img ng-src="{{pokemon.imagen}}" alt="Pokemon" />
+      <p>{{pokemon.nombre}}</p>
+      <p align="justify">{{pokemon.descripcion}}</p>
+      <p>
+        <button ng-click="eliminarPokemon(pokemon, $index)" class="btn btn-danger">Borrar</button>
+        <button ng-click="visible=!visible" class="btn btn-info" ng-disabled="botonCrearDeshabilitado" type="submit">Modificar</button>
+      </p>
+      <form class="animated bounceIn" ng-show="visible" ng-submit="editarPokemon(pokemon, $index)">
+        <div class="form-group">
+          <label>Nombre : </label>
+          <input class="form-control" type="text" ng-model="pokemones[$index].nombre" required>
+        </div>
+        <div class="form-group">
+          <label>Descripción : </label>
+          <input class="form-control" type="text" ng-model="pokemones[$index].descripcion" required>
+        </div>
+        <div class="form-group">
+          <label>Imagen : </label>
+          <input class="form-control" type="text" ng-model="pokemones[$index].imagen" required>
+        </div>
+        <div class="form-group">
+          <label>Número de Pokemon : </label>
+          <input class="form-control" type="number" ng-model="pokemones[$index].numeroDePokemon" required>
+        </div>
+        <div class="form-group">
+          <label>Habilidad : </label>
+          <input class="form-control" type="text" ng-model="pokemones[$index].habilidad" required>
+        </div>
+        <div class="form-group">
+          <label>Habilidad Oculta : </label>
+          <input class="form-control" type="text" ng-model="pokemones[$index].habilidadOculta" required>
+        </div>
+        <div class="form-group">
+          <label>Color : </label>
+          <input class="form-control" type="text" ng-model="pokemones[$index].color" required>
+        </div>
+        <div class="form-group">
+          <label>Velocidad : </label>
+          <input class="form-control" type="number" ng-model="pokemones[$index].velocidad" required>
+        </div>
+        <div class="form-group">
+          <label>Fortaleza : </label>
+          <input class="form-control" type="number" ng-model="pokemones[$index].fortaleza" required>
+        </div>
+        <div class="form-group">
+          <label>Precisión : </label>
+          <input class="form-control" type="number" ng-model="pokemones[$index].precision" required>
+        </div>
+        <div class="form-group">
+          <label>Resistencia : </label>
+          <input class="form-control" type="number" ng-model="pokemones[$index].resistencia" required>
+        </div>
+        <div class="form-group">
+          <label>Salto : </label>
+          <input class="form-control" type="number" ng-model="pokemones[$index].salto" required>
+        </div>
+        <button type="submit" class="btn btn-block btn-primary">Guardar</button>
+      </form>
+    </div>
+  </div>
+</div>
